@@ -40,7 +40,6 @@ function Question(props) {
     formData.append('file', b);
     formData.append('fileName', `${id}.${lang}`);
     formData.append('id',id);
-    formData.append('email',props.session.email)
     fetch(`${process.env.REACT_APP_API_URL}/document`, {
     method: 'POST',
     body: formData
@@ -60,18 +59,6 @@ function Question(props) {
  
 };
 
-const skipsolution = (event) => {
-
-  event.preventDefault();
-  const formData = new FormData();
-  formData.append('id',id);
-  formData.append('email',props.session.email)
-  formData.append('skip',"true")
-  fetch(`${process.env.REACT_APP_API_URL}/document`, {
-  method: 'POST',
-  body: formData
-  }).then(response => response.text()).then(data => window.location.href="/")
-};
 
 useEffect(()=>{
   if (result && result.accepted===true) confetti()  
@@ -183,11 +170,7 @@ const [code,setcode]=useState(null);
     </ScrollShadow>
   )}
   
-  <div className='absolute right-28 ml-auto' >
-      <Button className={`my-3 ${props.toggle.dark? "bg-red-950" : "bg-red-200"}`} size="sm" onClick={skipsolution}>
-        Skip
-      </Button>
-    </div>
+  
   <form className="absolute right-10" onSubmit={subsolution} encType='multipart/form-data' style={{ marginLeft: 'auto' }}>
     
     <div>

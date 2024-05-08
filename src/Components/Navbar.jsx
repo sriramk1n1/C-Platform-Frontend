@@ -70,34 +70,7 @@ export default function Navbar_(props) {
           </Select>
         </NavbarItem> */}
 
-        <NavbarItem  className={props.loggedin?"":"hidden"}>
-          <Button as={Link}  color="primary" variant="flat" href="/">
-            {props.session && props.session.email}
-          </Button>
-        </NavbarItem>
-
-        <NavbarItem  className={props.loggedin?"":"hidden"}>
-          <Button as={Link}  color="primary" variant="flat" href="/">
-            Rating: {props.session && props.session.points}
-          </Button>
-        </NavbarItem>
-
-        <NavbarItem  className={!props.loggedin?"":"hidden"}>
-          <Button as={Link} color="primary" variant="flat" href="/login">
-            Login
-          </Button>
-        </NavbarItem>
-        <NavbarItem className={props.loggedin?"":"hidden"}>
-          <Button as={Link} color="primary" href="/logout" variant="flat">
-            Logout
-          </Button>
-        </NavbarItem>
-
-        <NavbarItem className={!props.loggedin?"":"hidden"}>
-          <Button as={Link} color="primary" href="/register" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
+        
 
 
 

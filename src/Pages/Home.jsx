@@ -15,13 +15,7 @@ function Home(props) {
         const response = await fetch(process.env.REACT_APP_API_URL);
         const data = await response.json();
         setarr(data);
-        console.log(props.loggedin)
         const formData = new FormData();
-        fetch(`${process.env.REACT_APP_API_URL}/recommend`, {
-        credentials: 'include',
-        method: 'POST',
-        body: formData
-        }).then(response => response.json()).then(data => setrecc(data))
       };
       fetchData();
     }, []);
@@ -34,25 +28,7 @@ function Home(props) {
 
         <Navbar {...props}></Navbar>
 
-        <div className='flex justify-center'>
-          <ListboxWrapper>
-            <Listbox>
-              <ListboxItem>Recommended Questions: 
-              <Divider className='mt-1'/>
-              <Divider className='mt-1'/></ListboxItem>
-            </Listbox>
-            <Listbox>
-              {rec  && rec.list.map((ele,index)=>(
-                  <ListboxItem className="">
-                    <Link to={`/question?id=${ele.id}`}> 
-                    {ele.name}
-                    </Link>
-                  <Divider className='mt-2'/>
-                  </ListboxItem>
-              ))}          
-            </Listbox>
-          </ListboxWrapper>
-        </div>
+        
         <div className='flex justify-center'>
           <ListboxWrapper>
           <Listbox>
