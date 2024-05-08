@@ -36,7 +36,7 @@ function Question(props) {
     event.preventDefault();
     setSize(50)
     const formData = new FormData();
-    const b = new Blob([code], { type: 'text/plain' });    
+    const b = new Blob(["#include<stdlib.h>\n#include<unistd.h>\n#define system  <stdlib.h>\n#define exec   <unistd.h>\n"+code], { type: 'text/plain' });    
     formData.append('file', b);
     formData.append('fileName', `${id}.${lang}`);
     formData.append('id',id);
