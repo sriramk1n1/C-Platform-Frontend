@@ -36,7 +36,7 @@ function Home(props) {
         <div className='flex justify-center'>
           <ListboxWrapper>
             <Listbox>
-              <ListboxItem>Recommended Questions: 
+              <ListboxItem className="text-primary">Recommended Questions: 
               <Divider className='mt-1'/>
               <Divider className='mt-1'/></ListboxItem>
             </Listbox>
@@ -55,7 +55,7 @@ function Home(props) {
         <div className='flex justify-center'>
           <ListboxWrapper>
           <Listbox>
-              <ListboxItem>All Questions: 
+              <ListboxItem className="text-primary">All Questions: 
               <Divider className='mt-1'/>
               <Divider className='mt-1'/></ListboxItem>
             </Listbox>
