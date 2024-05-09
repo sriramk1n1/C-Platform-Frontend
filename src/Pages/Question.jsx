@@ -95,8 +95,8 @@ const [code,setcode]=useState(null);
     
         <MediaQuery query="(max-device-width: 1024px)">
         <PanelGroup direction="vertical">
-          <Panel className='mx-8'>
-          <div className='p-3 overflow-y-auto max-h-[36vh]'>
+          <Panel className='mx-8' defaultSize={40}>
+          <div className='p-3 overflow-y-auto max-h-[40vh]'>
               <h1 key="1"  className='pt-2 pb-2'>{arr && arr.name}</h1>
               <div>{arr && arr.desc.split("\n").map((ele,idx)=>(<div key={idx}>{ele}</div>))}</div>
               <h4 key="2" className='pt-5 pb-2'>Constraints:</h4>
@@ -118,7 +118,7 @@ const [code,setcode]=useState(null);
           </Panel>
           <PanelResizeHandle className={`h-1 ${props.toggle.dark? "bg-gray-800" : "bg-blue-50"}`}/>
         
-              <Panel>
+              <Panel defaultSize={40}>
                   <Editor language="cpp" theme={props.toggle.dark?'vs-dark':'light'} 
                   value={com}
                    onChange={(v,e)=>setcode(v)}
@@ -127,7 +127,7 @@ const [code,setcode]=useState(null);
                  
               </Panel>
               <PanelResizeHandle className={`h-1 ${props.toggle.dark? "bg-gray-800" : "bg-blue-50"}`}/>
-              <Panel >
+              <Panel defaultSize={8}>
               {result && result.warnings !== "" && (
     <ScrollShadow className='pl-5'>
       <div className="text-red-600">Warnings:</div>
