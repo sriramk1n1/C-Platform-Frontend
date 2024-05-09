@@ -127,7 +127,7 @@ const [code,setcode]=useState(null);
                  
               </Panel>
               <PanelResizeHandle className={`h-1 ${props.toggle.dark? "bg-gray-800" : "bg-blue-50"}`}/>
-              <Panel defaultSize={8}>
+              <Panel defaultSize={12}>
               {result && result.warnings !== "" && (
     <ScrollShadow className='pl-5'>
       <div className="text-red-600">Warnings:</div>
