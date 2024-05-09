@@ -3,7 +3,7 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from "@n
 import { MoonIcon } from "./MoonIcon";
 import { SunIcon } from "./SunIcon";
 import { Switch } from "@nextui-org/react";
-import { Select, SelectItem } from "@nextui-org/react";
+import Cookies from "js-cookie";
 //// sm:flex gap-4
 
 export default function Navbar_(props) {
@@ -71,7 +71,11 @@ export default function Navbar_(props) {
         </NavbarItem> */}
 
         
-
+        <NavbarItem >
+          <Button  color="primary" variant="flat">
+            Rating: {props.rating.rating}
+          </Button>
+        </NavbarItem>
 
 
         <NavbarItem>

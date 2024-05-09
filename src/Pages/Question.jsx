@@ -51,15 +51,35 @@ function Question(props) {
   }).then(data => {
     console.log('Upload successful:', data);
     setResult(data)
+    props.rating.setRating(parseInt(props.rating.rating)+data.points);
     if (props.z.startsWith("l")) props.setz("")
     else props.setz("lksd")
   }).catch(error => {
     console.error('There was a problem with the file upload:', error);
   });
+
+
+  
  
 };
 
+const skipsolution = (event) => {
 
+  event.preventDefault();
+  const formData = new FormData();
+  formData.append('id',id);
+  formData.append('skip',"true")
+  fetch(`${process.env.REACT_APP_API_URL}/document`, {
+  method: 'POST',
+  body: formData
+  }).then(response => response.text()).then(data => 
+    {
+      console.log('minus',data)
+      props.rating.setRating(parseInt(props.rating.rating)-parseInt(data))
+      window.location.href="/"
+    }
+  )
+  };
 useEffect(()=>{
   if (result && result.accepted===true) confetti()  
 },[result]);
@@ -170,7 +190,11 @@ const [code,setcode]=useState(null);
     </ScrollShadow>
   )}
   
-  
+  <div className='absolute right-28 ml-auto' >
+      <Button className={`my-3 ${props.toggle.dark? "bg-red-950" : "bg-red-200"}`} size="sm" onClick={skipsolution}>
+        Skip
+      </Button>
+    </div>
   <form className="absolute right-10" onSubmit={subsolution} encType='multipart/form-data' style={{ marginLeft: 'auto' }}>
     
     <div>
